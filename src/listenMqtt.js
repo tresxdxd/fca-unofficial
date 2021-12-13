@@ -160,7 +160,8 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
     try {
       var jsonMessage = JSON.parse(message);
     } catch (ex) {
-      return console.error("listenMqtt", "JSON conversion failed");
+      return;
+      //console.error("listenMqtt", "JSON conversion failed");
     }
     if (topic === "/t_ms") {
       if (ctx.tmsWait && typeof ctx.tmsWait == "function") {
