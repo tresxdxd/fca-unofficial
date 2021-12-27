@@ -34,7 +34,7 @@ function formatThreadGraphQLResponse(data) {
   try{
     var messageThread = data.o0.data.message_thread;
   } catch (err){
-    console.error("GetThreadInfoGraphQL", err);
+    console.error("GetThreadInfoGraphQL", "Can't get this thread info!");
     return {err: err};
   }
   var threadID = messageThread.thread_key.thread_fbid
