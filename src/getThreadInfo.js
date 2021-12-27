@@ -31,7 +31,12 @@ function formatEventReminders(reminder) {
 }
 
 function formatThreadGraphQLResponse(data) {
-  var messageThread = data.o0.data.message_thread;
+  try{
+    var messageThread = data.o0.data.message_thread;
+  } catch (err){
+    console.error("GetThreadInfoGraphQL", err);
+    return {err: err};
+  }
   var threadID = messageThread.thread_key.thread_fbid
     ? messageThread.thread_key.thread_fbid
     : messageThread.thread_key.other_user_id;
